@@ -1,6 +1,8 @@
 package com.ra3_4.examen.recu.model;
 
 import jakarta.persistence.*;
+
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -33,6 +35,7 @@ public class Product {
     // TODO - ACTIVITAT 1
     @OneToOne
     private TechnicalSheet technicalSheet;
+    
 
     // TODO - ACTIVITAT 1.
     @OneToOne
@@ -49,6 +52,16 @@ public class Product {
     @UpdateTimestamp
     @Column(name = "data_updated")
     private LocalDateTime dataUpdated;
+
+    @Column (name = "product_id")
+    private Product product_id;
+
+    @ManyToMany
+    @Column (name="tag_id")
+    private ProductTag tag_id;
+
+    
+    
 
     // Getters i Setters
     public Long getId() { return id; }

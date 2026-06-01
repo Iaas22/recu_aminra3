@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "categories")
 public class Category {
 
-    
+  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +20,7 @@ public class Category {
     private String description;
 
     // TODO - ACTIVITAT 1
+    @OneToMany
     private List<Product> products = new ArrayList<>();
 
     // Getters i Setters

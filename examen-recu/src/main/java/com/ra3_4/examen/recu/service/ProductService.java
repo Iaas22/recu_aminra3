@@ -51,13 +51,13 @@ public class ProductService {
     // Crear un producte nou
     public ProductResponseDTO createProduct(ProductRequestDTO request) {
 
-        Product entity = productMapper.__________(request);
+        Product entity = productMapper.toDTO(request);
 
         // Si s'informa categoryId, buscar la categoria existent (no crear-ne una de nova)
         if (request.getCategoryId() != null) {
             Optional<Category> category = categoryRepository.findById(request.getCategoryId());
             if (category.isPresent()) {
-                entity.(category.get());
+                entity.equals(category.get());
             }
         }
            
@@ -76,6 +76,5 @@ public class ProductService {
         return true;
     }
 
-
-   
+  
 }

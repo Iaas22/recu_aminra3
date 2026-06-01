@@ -17,6 +17,7 @@ public class ProductTag {
     private Boolean active = true;
 
     // TODO - ACTIVITAT 1
+    @OneToMany
     private List<Product> products = new ArrayList<>();
 
     // Getters i Setters

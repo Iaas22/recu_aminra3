@@ -47,6 +47,13 @@ public class ProductController {
 
     // TODO activitat 4 - endpoint :
     // GET /api/products/price-range?priceMin=&priceMax=
+
+    @GetMapping("/api/products/pice-range?priceMin=&priceMax=")
+        public ResponseEntity<List<ProductResponseDTO>> getProductsById(@PathVariable id) {
+            return ResponseEntity.ok(productService.getProductById(id));
+
+
+    }
     // Ha de retornar ResponseEntity<List<ProductResponseDTO>> dels productes que tenen un preu entre un min i un max i status true
 
     

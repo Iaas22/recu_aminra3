@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import com.ra3_4.examen.recu.dto.ProductRequestDTO;
 import com.ra3_4.examen.recu.dto.ProductResponseDTO;
 import com.ra3_4.examen.recu.model.Product;
+import com.ra3_4.examen.recu.model.TechnicalSheet;
 
 
 @Component
@@ -14,18 +15,18 @@ public class ProductMapper {
 
     public ProductResponseDTO toDTO(Product p) {
         
-        if(__) return null; // null-safety
+        if() return null; // null-safety
 
         ProductResponseDTO dto = new ProductResponseDTO();
 
-        dto.setId(__);
-        dto.setName(__);
-        dto.setDescription(__);
-        dto.setPrice(__);
-        dto.setStock(__);
+        dto.setId(p.getId());
+        dto.setName(p.getName());
+        dto.setDescription(p.getDescription());
+        dto.setPrice(p.getPrice());
+        dto.setStock(p.getStock());
 
        
-        if (__ != null) {
+        if (p != null) {
             dto.setColor(__);
         }
 
@@ -35,6 +36,10 @@ public class ProductMapper {
     
     public Product toEntity() {
         Product product = new Product();
+
+        TechnicalSheet sheet = new Sheet(String color);
+
+        
 
         // TODO activitat2: mapeja els camps name, description, price i stock del DTO a l'entitat
 
