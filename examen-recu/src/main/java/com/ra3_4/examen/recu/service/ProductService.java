@@ -34,16 +34,16 @@ public class ProductService {
         List<Product> products = (List<Product>) productRepository.findAll();
         List<ProductResponseDTO> dtos = new ArrayList<>();
         for (Product p : products) {
-            dtos.add(__________);
+            dtos.add();
         }
         return dtos;
     }
 
     // Obtenir un producte per ID
     public ProductResponseDTO getProductById(Long id) {
-        Product product = productRepository._____;
-         if (product.___________()) {
-            return productMapper.to____(_____);
+        Product product = productRepository.getById(id);
+         if (product.getActive(), product.getCategory(), product) {
+            return productMapper.toDTO(product);
         }
         return null;
     }
@@ -54,25 +54,25 @@ public class ProductService {
         Product entity = productMapper.__________(request);
 
         // Si s'informa categoryId, buscar la categoria existent (no crear-ne una de nova)
-        if (request.__________ != null) {
-            Optional<Category> category = categoryRepository.______(request.getCategoryId());
+        if (request.getCategoryId() != null) {
+            Optional<Category> category = categoryRepository.findById(request.getCategoryId());
             if (category.isPresent()) {
-                entity._________(category.get());
+                entity.(category.get());
             }
         }
            
-        Product saved = productRepository.__________(entity);
-        return productMapper.__________(saved);
+        Product saved = productRepository.save(entity);
+        return productMapper.toDTO(saved);
     }
 
     // Borrar un producte per la id
     public boolean deleteProduct(Long id) {
 
-        if (!productRepository.__________(id)) {
+        if (!productRepository.existsById(id)) {
             return false;
         }
 
-        productRepository.__________(id);
+        productRepository.deleteById(id);
         return true;
     }
 
